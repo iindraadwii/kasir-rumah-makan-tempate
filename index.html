@@ -30,6 +30,34 @@
       height: 100%; /* Menggunakan % mengikuti body, jangan gunakan vh */
       display: block;
     }
+
+    /* ==========================================
+       SETTING CETAK STRUK THERMAL (57mm & 80mm)
+       Mengatasi cetak agar tidak perlu new tab 
+       ========================================== */
+    @media print {
+      @page {
+        margin: 0;
+        /* Browser akan mengutamakan ukuran kertas kasir default (57mm/58mm/80mm) */
+      }
+      
+      html, body {
+        position: static !important;
+        width: 100% !important;
+        height: auto !important;
+        overflow: visible !important;
+        background-color: white !important;
+      }
+
+      iframe {
+        position: static !important;
+        width: 100% !important;
+        /* Membatasi lebar aman cetak maksimal untuk kertas 80mm (72mm area cetak),
+           akan otomatis mengecil menyesuaikan jika printer yang dipakai 57mm */
+        max-width: 72mm !important; 
+        height: 100vh !important;
+      }
+    }
   </style>
 </head>
 <body>
