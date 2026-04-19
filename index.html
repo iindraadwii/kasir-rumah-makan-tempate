@@ -2,7 +2,6 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <!-- Mencegah zoom manual dan menyesuaikan area poni HP (notch/safe-area) -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   
   <title>Kasir Rumah Makan - template</title> 
@@ -34,8 +33,38 @@
 </head>
 <body>
 
-  <!-- Pastikan link exec Anda ada di sini -->
-  <iframe src="https://script.google.com/macros/s/AKfycbzX_010K7Kpa9ziSLDjudvco4IzrsZE5HOJNyiheSaD5HjfOmMqyCae9VjGTobOeQcqqA/exec"></iframe>
+  <iframe src="https://script.google.com/macros/s/AKfycbxIWcwdaL3uZmLp7Bg2KDKQe50YkKdGJmyqDspTiNxmSQv_r-rLc-4uHEeoRYkbj6XUAQ/exec" allow="autoplay; encrypted-media; clipboard-read; clipboard-write; fullscreen"></iframe>
 
+  <!-- SCRIPT ANTI INSPECT & KLIK KANAN -->
+  <script>
+    // Mematikan Klik Kanan
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+    });
+
+    // Mematikan Shortcut Keyboard untuk Developer Tools
+    document.onkeydown = function(e) {
+      // F12
+      if(e.keyCode == 123) {
+        return false;
+      }
+      // Ctrl+Shift+I (Inspect)
+      if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+        return false;
+      }
+      // Ctrl+Shift+C (Inspect Element)
+      if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+        return false;
+      }
+      // Ctrl+Shift+J (Console)
+      if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+        return false;
+      }
+      // Ctrl+U (View Source)
+      if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+        return false;
+      }
+    };
+  </script>
 </body>
 </html>
